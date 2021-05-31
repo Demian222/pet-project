@@ -12,26 +12,26 @@ export interface UserModel {
 
 export type UsersState = {
   users: UserModel[];
-  total_pages: number;
-  current_page: number;
+  totalPages: number;
+  currentPage: number;
 };
 
 export const users = createModel<RootModel>()({
   state: {
     users: [],
-    total_pages: 0,
-    current_page: 1,
+    totalPages: 0,
+    currentPage: 1,
   } as UsersState,
   reducers: {
     setUsersReducer: (
       state: UsersState,
       users: UserModel[],
-      total_pages: number
+      totalPages: number
     ) => {
-      return { users, total_pages, current_page: state.current_page };
+      return { users, totalPages, currentPage: state.currentPage };
     },
-    setCurrentPageReducer: (state: UsersState, current_page: number) => {
-      return { ...state, current_page };
+    setCurrentPageReducer: (state: UsersState, currentPage: number) => {
+      return { ...state, currentPage };
     },
   },
   effects: (dispatch) => {

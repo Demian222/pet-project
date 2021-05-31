@@ -1,7 +1,7 @@
 import React from "react";
 import { Users } from "../users/users";
 import icon from "./icon.png";
-import { Link, Switch, Route, BrowserRouter } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
 import styled from "@emotion/styled";
 import { css, jsx } from "@emotion/react";
 
@@ -22,7 +22,7 @@ export const App = () => {
   return (
     <>
       <Header>
-        <Link to="/">
+        <Link to="/users/1">
           <img src={icon} height="80" width="80"></img>
         </Link>
         <Link to="/users/1">Пользователи</Link>
@@ -30,12 +30,10 @@ export const App = () => {
         <Link to="/">Demian</Link>
       </Header>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <h2>home</h2>
         </Route>
         <Route path="/users/:page" component={Users} />
-        {/* <Users /> */}
-        {/* </Route> */}
         <Route path="/todos">
           <h2>todos</h2>
         </Route>
