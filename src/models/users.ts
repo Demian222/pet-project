@@ -1,6 +1,6 @@
 import { createModel } from "@rematch/core";
 import { RootModel } from ".";
-import axios from "axios";
+import { serverRequest } from "../services";
 
 export interface UserModel {
   id: number;
@@ -10,7 +10,7 @@ export interface UserModel {
   avatar: string;
 }
 
-type UsersState = {
+export type UsersState = {
   users: UserModel[];
   total_pages: number;
   current_page: number;
@@ -23,10 +23,14 @@ export const users = createModel<RootModel>()({
     current_page: 1,
   } as UsersState,
   reducers: {
-    SET_USERS: (state: UsersState, users: UserModel[], total_pages: number) => {
+    setUsersReducer: (
+      state: UsersState,
+      users: UserModel[],
+      total_pages: number
+    ) => {
       return { users, total_pages, current_page: state.current_page };
     },
-    SET_CURRENT_PAGE: (state: UsersState, current_page: number) => {
+    setCurrentPageReducer: (state: UsersState, current_page: number) => {
       return { ...state, current_page };
     },
   },
@@ -34,18 +38,19 @@ export const users = createModel<RootModel>()({
     const { users } = dispatch;
     return {
       async getUsers(page: number): Promise<any> {
-        const response = await axios.get(`https://reqres.in/api/users`, {
-          params: { page },
-        });
+        const response = await serverRequest(
+          `https://reqres.in/api/users`,
+          page
+        );
         const {
           data,
           total_pages,
         }: { data: UserModel[]; total_pages: number } = response.data;
 
-        users.SET_USERS(data, total_pages);
+        users.setUsersReducer(data, total_pages);
       },
       setCurrentPage(page: number) {
-        users.SET_CURRENT_PAGE(page);
+        users.setCurrentPageReducer(page);
       },
     };
   },
