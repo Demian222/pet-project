@@ -1,13 +1,13 @@
 import React from "react";
 import { UserModel } from "../../models/users";
 import styled from "@emotion/styled";
-import { css, jsx } from "@emotion/react";
+import { userCardsColor } from "../theme";
 
 const UserBlock = styled.div`
   display: flex;
   margin: 10px;
   padding: 10px;
-  background-color: #cac8c829;
+  background-color: ${userCardsColor};
   width: 580px;
 `;
 
@@ -19,11 +19,17 @@ const InfoBlock = styled.div`
   justify-content: center;
 `;
 
-export const User = ({ user }: { user: UserModel }) => {
-  const { avatar, first_name, last_name, email } = user;
+export const UserCard = ({
+  user,
+  handle,
+}: {
+  user: UserModel;
+  handle: any;
+}) => {
+  const { avatar, first_name, last_name, email, id } = user;
 
   return (
-    <UserBlock>
+    <UserBlock id={id.toString()} onClick={handle(id)}>
       <img src={avatar} height={200} width={200}></img>
       <InfoBlock>
         <p>First name: {first_name}</p>

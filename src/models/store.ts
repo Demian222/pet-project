@@ -1,5 +1,5 @@
 import { init, RematchDispatch, RematchRootState } from "@rematch/core";
-import { models, RootModel } from "./models";
+import { models, RootModel } from ".";
 import loading, { ExtraModelsFromLoading } from "@rematch/loading";
 import updated, { ExtraModelsFromUpdated } from "@rematch/updated";
 
