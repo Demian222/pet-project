@@ -1,7 +1,7 @@
 import React from "react";
 import { UserModel } from "../../models/users";
 import styled from "@emotion/styled";
-import { modalColor } from "../theme";
+import { modalTheme } from "../theme";
 
 const Modal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
@@ -28,9 +28,9 @@ const ModalBody = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${modalColor};
   border: 3px ridge black;
   padding: 10px;
+  ${modalTheme}
 `;
 
 export const ModalWindow = ({

@@ -3,19 +3,19 @@ import { UsersList } from "../usersList/usersList";
 import icon from "./icon.png";
 import { Link, Switch, Route } from "react-router-dom";
 import styled from "@emotion/styled";
-import { headerColor, footerColor } from "../theme";
+import { footerTheme, headerTheme } from "../theme";
 
 const Header = styled.header`
-  background-color: ${headerColor};
   display: flex;
   justify-content: space-around;
   align-items: center;
+  ${headerTheme}
 `;
 
 const Footer = styled.footer`
   height: 40px;
-  background-color: ${footerColor};
   margin-top: 10px;
+  ${footerTheme}
 `;
 
 export const App = () => {

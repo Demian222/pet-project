@@ -1,14 +1,14 @@
 import React from "react";
 import { UserModel } from "../../models/users";
 import styled from "@emotion/styled";
-import { userCardsColor } from "../theme";
+import { userCardsTheme } from "../theme";
 
 const UserBlock = styled.div`
   display: flex;
   margin: 10px;
   padding: 10px;
-  background-color: ${userCardsColor};
   width: 580px;
+  ${userCardsTheme}
 `;
 
 const InfoBlock = styled.div`

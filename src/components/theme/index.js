@@ -1,4 +1,4 @@
-export const headerColor = "#ffa600";
-export const footerColor = "#ffa600";
-export const userCardsColor = "#cac8c829";
-export const modalColor = "#fff";
+export const headerTheme = "background-color: #ffa600;";
+export const footerTheme = "background-color: #ffa600;";
+export const userCardsTheme = "background-color: #cac8c829;";
+export const modalTheme = "background-color: #fff;";
